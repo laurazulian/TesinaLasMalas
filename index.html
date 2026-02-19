@@ -38,8 +38,19 @@
             }
         }
 
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -61,13 +72,6 @@
             font-weight: 700;
         }
 
-        .subtitle {
-            font-size: 1.3em;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
         .author-info {
             margin-top: 30px;
             padding-top: 20px;
@@ -76,162 +80,13 @@
             color: #666;
         }
 
-        .content-section {
+        .intro-section {
             background: white;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            margin-bottom: 30px;
-            animation: fadeInUp 0.8s ease-out;
-            transition: all 0.3s;
-        }
-
-        .content-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-        }
-
-        h2 {
-            color: #764ba2;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-left: 5px solid #667eea;
-            padding-left: 15px;
-        }
-
-        h3 {
-            color: #667eea;
-            font-size: 1.3em;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-            font-size: 1.05em;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, #667eea33 0%, #764ba233 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #764ba2;
-        }
-
-        .quote {
-            font-style: italic;
-            color: #555;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
-            background: #f8f9fa;
-        }
-
-        ul {
-            margin-left: 30px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: white;
-            font-size: 0.9em;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .video-links {
-            margin-top: 30px;
-        }
-
-        .video-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border-left: 5px solid #667eea;
-            transition: all 0.3s;
-        }
-
-        .video-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .video-item h3 {
-            margin-top: 0;
-            color: #764ba2;
-        }
-
-        .video-item p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
         }
 
         .author-photo {
@@ -263,20 +118,250 @@
             transform: scale(1.05) rotate(2deg);
         }
 
+        .quote {
+            font-style: italic;
+            color: #555;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+            background: #f8f9fa;
+            text-align: justify;
+        }
+
+        /* Navigation Grid */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .nav-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .nav-card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .nav-card h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .nav-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: modalAppear 0.3s ease-out;
+        }
+
+        .close {
+            color: #764ba2;
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 30px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #667eea;
+        }
+
+        .modal h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .modal h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+            color: #2c3e50;
+        }
+
+        .modal ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .modal li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #667eea33 0%, #764ba233 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #764ba2;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            padding: 15px;
+            font-size: 0.85em;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .video-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-item h3 {
+            margin-top: 0;
+            color: #764ba2;
+            font-size: 1.1em;
+        }
+
+        .video-item p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+            font-size: 0.9em;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8em;
             }
-            
-            .content-section {
+
+            .modal-content {
                 padding: 25px;
-            }
-            
-            header {
-                padding: 40px 25px;
+                margin: 10% auto;
+                width: 95%;
             }
 
-            .image-gallery {
+            .nav-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -288,6 +373,25 @@
                 width: 150px;
                 height: 150px;
             }
+        }
+
+        /* Scrollbar para modales */
+        .modal-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
         }
     </style>
 </head>
@@ -304,164 +408,238 @@
             </div>
         </header>
 
-        <div class="content-section">
-            <h2>Sobre la Obra y la Autora</h2>
+        <div class="intro-section">
+            <h2 style="color: #764ba2; text-align: center; margin-bottom: 30px;">Sobre la Obra y la Autora</h2>
             <div style="text-align: center;">
-                <img src="./assets/portada_las-malas__.jpg" alt="Portada del libro Las Malas" class="book-cover">
+                <img src="/TesinaLasMalas/assets/portada_las-malas__.jpg" alt="Portada del libro Las Malas" class="book-cover">
                 <p style="font-style: italic; color: #666; margin-top: 10px;">📚 "Las Malas" - Editorial Tusquets</p>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <img src="./assets/Camila_Sosa_Villada.png" alt="Camila Sosa Villada" class="author-photo">
+                <img src="/TesinaLasMalas/assets/Camila_Sosa_Villada.png" alt="Camila Sosa Villada" class="author-photo">
                 <p style="font-style: italic; color: #666;">✍️ Camila Sosa Villada, escritora y actriz argentina</p>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h2>La literatura: instrumento de soberanía</h2>
-            <p>Este trabajo se adentra en lo que denominamos la "arquitectura del milagro", analizando las piezas lingüísticas y simbólicas que permiten que la vida travesti se inscriba en la historia no como una nota al pie del horror, sino como un despliegue de belleza y resistencia política.</p>
-            
             <div class="quote">
                 "Soy una negra de mierda, una ordinaria, una orillera, una cuchillera, el mundo me queda grande, el tiempo me queda grande, las sedas me quedan grandes, el respeto me queda enorme. Soy negra como el carbón, como el barro, como el pantano, soy negra de alma, de corazón, de pensamiento, de nacimiento y destino. Soy una atorrante, una desclasada, una sin tierra, una sombra de lo que pude ser".
             </div>
 
-            <p>A través de una prosa poética y visceral, Sosa Villada construye un relato que es tanto testimonio como ficción, explorando temas de identidad, marginalidad, violencia y resistencia y construyendo, a través del realismo mágico en sintonía con las disidencias sexuales una nueva forma de escribir la historia travesti.</p>
+            <p style="text-align: center; font-size: 1.2em; color: #764ba2; margin-top: 30px; font-weight: bold;">
+                Explora los diferentes aspectos de esta investigación haciendo clic en las secciones:
+            </p>
         </div>
 
-        <div class="content-section">
-            <h2>Objetivos de la Investigación</h2>
-            <ul>
-                <li><strong>Objetivo General:</strong> Establecer la relación fundamental que existe en la literatura entre el realismo mágico y las disidencias sexuales en la obra Las Malas de Camila Sosa Villada.</li>
-                <li><strong>Objetivos Específicos:</strong></li>
-                <li>Describir y analizar los principales elementos de la estética del realismo mágico (metamorfosis, temporalidad, espectralidad) presentes dentro de la obra.</li>
-                <li>Determinar la relación indisoluble entre ambos conceptos (realismo mágico y disidencia sexual) presentes, definiendo la estrategia del "político-maravilloso."</li>
-                <li>Enfatizar la importancia del texto estudiado para la cultura contemporánea y para los estudios de comunicación y literaturas de la disidencia.</li>
-            </ul>
+        <!-- Navigation Cards -->
+        <div class="nav-grid">
+            <div class="nav-card" onclick="openModal('objetivosModal')">
+                <div class="nav-card-icon">🎯</div>
+                <h3>Objetivos</h3>
+                <p>Explora los objetivos generales y específicos de esta investigación</p>
+            </div>
+
+            <div class="nav-card" onclick="openModal('ejesModal')">
+                <div class="nav-card-icon">📖</div>
+                <h3>Ejes Temáticos</h3>
+                <p>Descubre los seis ejes que estructuran el análisis</p>
+            </div>
+
+            <div class="nav-card" onclick="openModal('marcoModal')">
+                <div class="nav-card-icon">📚</div>
+                <h3>Marco Teórico</h3>
+                <p>Las bases teóricas que sustentan la investigación</p>
+            </div>
+
+            <div class="nav-card" onclick="openModal('metodologiaModal')">
+                <div class="nav-card-icon">🔬</div>
+                <h3>Metodología</h3>
+                <p>Conoce el enfoque metodológico cualitativo utilizado</p>
+            </div>
+
+            <div class="nav-card" onclick="openModal('conclusionesModal')">
+                <div class="nav-card-icon">💡</div>
+                <h3>Conclusiones</h3>
+                <p>Las reflexiones finales sobre la arquitectura del milagro</p>
+            </div>
+
+            <div class="nav-card" onclick="openModal('videosModal')">
+                <div class="nav-card-icon">📹</div>
+                <h3>Videos</h3>
+                <p>Entrevistas y charlas de Camila Sosa Villada</p>
+            </div>
         </div>
 
-        <div class="content-section">
-            <h2>Ejes Temáticos</h2>
-            
-            <h3>Cuerpo travesti y metamorfosis en el realismo mágico</h3>
-            <p>Analiza transformaciones corporales y animalidad que resignifican el cuerpo, convirtiendo lo "monstruoso" en una forma de resistencia frente a la deshumanización.</p>
-
-            <h3>Tiempo mágico y temporalidad queer en la narrativa travesti</h3>
-            <p>Explora las rupturas del tiempo lineal (ciclos, resurrecciones, mitos) que dialogan con las vidas precarias, desafiando la normatividad cishetero.</p>
-
-            <h3>Comunidad mágica y parentescos disidentes</h3>
-            <p>Examina la construcción de redes afectivas y vínculos no normativos que disputan el modelo familiar hegemónico.</p>
-
-            <h3>Espectralidad mágica y aparición travesti</h3>
-            <p>Investiga figuras espectrales y apariciones milagrosas que representan las formas intermitentes en que las disidencias aparecen o desaparecen en el espacio social.</p>
-
-            <h3>Lenguaje neobarroco y poética travesti en clave de realismo mágico</h3>
-            <p>Aborda el uso de la hibridez, el exceso y la revalorización del insulto para producir una voz narrativa soberana que subvierte el canon.</p>
-
-            <h3>Lo político-maravilloso y la resistencia travesti</h3>
-            <p>Define el realismo mágico como estrategia para denunciar violencias estructurales y narrar la supervivencia como un milagro y resurrección cotidiana.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Marco Teórico</h2>
-            <div class="highlight">
-                <p><strong>Áreas de estudio:</strong></p>
+        <!-- Modals -->
+        
+        <!-- Objetivos Modal -->
+        <div id="objetivosModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('objetivosModal')">&times;</span>
+                <h2>Objetivos de la Investigación</h2>
                 <ul>
-                    <li>Antecedentes de Camila Sosa Villada</li>
-                    <li>Realismo Mágico</li>
-                    <li>Disidencias sexuales</li>
+                    <li><strong>Objetivo General:</strong> Establecer la relación fundamental que existe en la literatura entre el realismo mágico y las disidencias sexuales en la obra Las Malas de Camila Sosa Villada.</li>
+                    <li><strong>Objetivos Específicos:</strong></li>
+                    <li>Describir y analizar los principales elementos de la estética del realismo mágico (metamorfosis, temporalidad, espectralidad) presentes dentro de la obra.</li>
+                    <li>Determinar la relación indisoluble entre ambos conceptos (realismo mágico y disidencia sexual) presentes, definiendo la estrategia del "político-maravilloso."</li>
+                    <li>Enfatizar la importancia del texto estudiado para la cultura contemporánea y para los estudios de comunicación y literaturas de la disidencia.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="content-section">
-            <h2>Metodología</h2>
-            <p>La presente tesis emplea una metodología de corte cualitativo, centrada en la interpretación profunda y densa de los significados y las estrategias discursivas presentes en la obra Las Malas. El núcleo analítico de este trabajo reside en la creación de seis categorías originales, diseñadas para desentrañar la complejidad de la novela. Estas categorías no fueron impuestas de manera externa, sino que surgieron de un proceso de lectura intensiva y codificación inductiva.</p>
-            <ul>
-                <li>Cuerpo travesti y metamorfosis en el realismo mágico</li>
-                <li>Tiempo mágico y temporalidad queer en la narrativa travesti</li>
-                <li>Comunidad mágica y parentescos disidentes</li>
-                <li>Espectralidad mágica y aparición travesti</li>
-                <li>Lenguaje neobarroco y poética travesti en clave de realismo mágico</li>
-                <li>Lo político-maravilloso y la resistencia travesti</li>
-            </ul>
+        <!-- Ejes Modal -->
+        <div id="ejesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('ejesModal')">&times;</span>
+                <h2>Ejes Temáticos</h2>
+                
+                <h3>🦋 Cuerpo travesti y metamorfosis en el realismo mágico</h3>
+                <p>Analiza transformaciones corporales y animalidad que resignifican el cuerpo, convirtiendo lo "monstruoso" en una forma de resistencia frente a la deshumanización.</p>
+
+                <h3>⏰ Tiempo mágico y temporalidad queer en la narrativa travesti</h3>
+                <p>Explora las rupturas del tiempo lineal (ciclos, resurrecciones, mitos) que dialogan con las vidas precarias, desafiando la normatividad cishetero.</p>
+
+                <h3>💜 Comunidad mágica y parentescos disidentes</h3>
+                <p>Examina la construcción de redes afectivas y vínculos no normativos que disputan el modelo familiar hegemónico.</p>
+
+                <h3>👻 Espectralidad mágica y aparición travesti</h3>
+                <p>Investiga figuras espectrales y apariciones milagrosas que representan las formas intermitentes en que las disidencias aparecen o desaparecen en el espacio social.</p>
+
+                <h3>✨ Lenguaje neobarroco y poética travesti en clave de realismo mágico</h3>
+                <p>Aborda el uso de la hibridez, el exceso y la revalorización del insulto para producir una voz narrativa soberana que subvierte el canon.</p>
+
+                <h3>✊ Lo político-maravilloso y la resistencia travesti</h3>
+                <p>Define el realismo mágico como estrategia para denunciar violencias estructurales y narrar la supervivencia como un milagro y resurrección cotidiana.</p>
+            </div>
         </div>
 
-        <div class="content-section">
-            <h2>Conclusiones</h2>
-            <p><em>La urgencia de este trabajo radica en la histórica deshumanización y patologización de las identidades travestis en el discurso social y literario. El problema de investigación no solo giró en torno a una cuestión estética, sino a una necesidad política: comprender cómo la literatura puede romper el cerco de la precariedad biológica. Investigar Las Malas permitió evidenciar que el lenguaje no es un terreno neutral, sino el espacio donde se disputa el derecho a existir con dignidad, belleza y memoria, transformando una realidad de exclusión en un territorio de soberanía narrativa.</em></p>
-            
-            <p>En definitiva, Las Malas es mucho más que una novela; es un mapa fundacional. Esta tesis ha demostrado que, a través de la arquitectura del milagro, la obra le ha otorgado a la disidencia sexual un lugar indestructible en la literatura universal. Al transformar la marginalidad en el epicentro de la belleza y la resistencia política, Camila Sosa Villada nos recuerda que, cuando la realidad se vuelve un territorio de muerte, la ficción es el único milagro capaz de hacernos renacer.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Galería Visual</h2>
-            <p>Imágenes que acompañan el universo de <em>Las Malas</em>:</p>
-            
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="./assets/Parque-Sarmiento.jpg" alt="Parque Sarmiento Córdoba">
-                    <div class="gallery-caption">
-                        <p><strong>Parque Sarmiento</strong><br>Escenario central de la novela en Córdoba, Argentina</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="./assets/Literatura_travesti.jpeg" alt="Literatura latinoamericana">
-                    <div class="gallery-caption">
-                        <p><strong>Literatura Travesti</strong><br>Una nueva voz en la literatura latinoamericana contemporánea</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="./assets/realismo_magico.jpg" alt="Escritura">
-                    <div class="gallery-caption">
-                        <p><strong>Realismo Mágico</strong><br>La arquitectura del milagro en cada página</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="./assets/marcha_orgullo.jpg" alt="Comunidad">
-                    <div class="gallery-caption">
-                        <p><strong>Comunidad y Resistencia</strong><br>Redes de cuidado y parentescos disidentes</p>
-                    </div>
+        <!-- Marco Teórico Modal -->
+        <div id="marcoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('marcoModal')">&times;</span>
+                <h2>Marco Teórico</h2>
+                <div class="highlight">
+                    <p><strong>Áreas de estudio:</strong></p>
+                    <ul>
+                        <li><strong>Antecedentes de Camila Sosa Villada:</strong> Análisis de su trayectoria como escritora y actriz, su posición dentro del campo literario argentino contemporáneo y su contribución a las literaturas de la disidencia.</li>
+                        <li><strong>Realismo Mágico:</strong> Estudio de esta corriente estética latinoamericana, sus características fundamentales (lo maravilloso cotidiano, la fusión de lo real y lo fantástico, la subversión del tiempo lineal) y su evolución desde el boom hasta las narrativas contemporáneas.</li>
+                        <li><strong>Disidencias sexuales:</strong> Marco conceptual desde la teoría queer, los estudios de género y las epistemologías travestis, incluyendo conceptos como corporalidad disidente, parentescos elegidos, temporalidad queer y resistencia política.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="content-section">
-            <h2>Videos de la Autora</h2>
-            <p>Entrevistas y presentaciones de Camila Sosa Villada sobre <em>Las Malas</em> y su obra:</p>
-            
-            <div class="video-links">
-                <div class="video-item">
-                    <h3>📹 Charla TED</h3>
-                    <p>Camila Sosa Villada habla sobre su infancia y sobre cómo fue sobrevivir en el Parque</p>
-                    <a href="https://youtu.be/KQDRKphX23M?si=TMDGpuwJL57zYVtP" target="_blank" class="cta-button">Ver video</a>
-                </div>
+        <!-- Metodología Modal -->
+        <div id="metodologiaModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('metodologiaModal')">&times;</span>
+                <h2>Metodología</h2>
+                <p>La presente tesis emplea una metodología de corte cualitativo, centrada en la interpretación profunda y densa de los significados y las estrategias discursivas presentes en la obra Las Malas. El núcleo analítico de este trabajo reside en la creación de seis categorías originales, diseñadas para desentrañar la complejidad de la novela. Estas categorías no fueron impuestas de manera externa, sino que surgieron de un proceso de lectura intensiva y codificación inductiva.</p>
+                
+                <h3>Categorías de Análisis</h3>
+                <ul>
+                    <li>Cuerpo travesti y metamorfosis en el realismo mágico</li>
+                    <li>Tiempo mágico y temporalidad queer en la narrativa travesti</li>
+                    <li>Comunidad mágica y parentescos disidentes</li>
+                    <li>Espectralidad mágica y aparición travesti</li>
+                    <li>Lenguaje neobarroco y poética travesti en clave de realismo mágico</li>
+                    <li>Lo político-maravilloso y la resistencia travesti</li>
+                </ul>
 
-                <div class="video-item">
-                    <h3>📹 Entrevista en agencia EFE</h3>
-                    <p>"Es necesario refundar algunas estrategias de supervivencia"</p>
-                    <a href="https://youtu.be/kCdqDLoDmE4?si=RekwGEaFrdmko-Hh" target="_blank" class="cta-button">Ver video</a>
-                </div>
+                <p style="margin-top: 20px;">Este enfoque permitió establecer conexiones inéditas entre el realismo mágico como tradición literaria latinoamericana y las narrativas contemporáneas de las disidencias sexuales, generando el concepto articulador de "arquitectura del milagro".</p>
+            </div>
+        </div>
 
-                <div class="video-item">
-                    <h3>📹 Entrevista en "Plano corto", canal Cenital</h3>
-                    <p>Reflexiones sobre identidad, literatura y memoria</p>
-                    <a href="https://youtu.be/DfR3DDOZSK8?si=tVCFblEMnNg-Yh7e" target="_blank" class="cta-button">Ver video</a>
-                </div>
+        <!-- Conclusiones Modal -->
+        <div id="conclusionesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('conclusionesModal')">&times;</span>
+                <h2>Conclusiones</h2>
+                <p><em>La urgencia de este trabajo radica en la histórica deshumanización y patologización de las identidades travestis en el discurso social y literario. El problema de investigación no solo giró en torno a una cuestión estética, sino a una necesidad política: comprender cómo la literatura puede romper el cerco de la precariedad biológica. Investigar Las Malas permitió evidenciar que el lenguaje no es un terreno neutral, sino el espacio donde se disputa el derecho a existir con dignidad, belleza y memoria, transformando una realidad de exclusión en un territorio de soberanía narrativa.</em></p>
+                
+                <p>En definitiva, Las Malas es mucho más que una novela; es un mapa fundacional. Esta tesis ha demostrado que, a través de la arquitectura del milagro, la obra le ha otorgado a la disidencia sexual un lugar indestructible en la literatura universal. Al transformar la marginalidad en el epicentro de la belleza y la resistencia política, Camila Sosa Villada nos recuerda que, cuando la realidad se vuelve un territorio de muerte, la ficción es el único milagro capaz de hacernos renacer.</p>
 
-                <div class="video-item">
-                    <h3>📹 Entrevista en Gelatina</h3>
-                    <p>"Escribir es íntimo, solitario y doloroso"</p>
-                    <a href="https://youtu.be/rXf2QlGfHSQ?si=S58k9EyLBErESDMI" target="_blank" class="cta-button">Ver video</a>
+                <h3>Aportes principales de la investigación:</h3>
+                <ul>
+                    <li>La definición del concepto "político-maravilloso" como estrategia narrativa específica de las disidencias sexuales</li>
+                    <li>La articulación entre realismo mágico y narrativas travestis como forma de resistencia epistemológica</li>
+                    <li>El análisis de la "arquitectura del milagro" como estructura que sostiene la soberanía narrativa travesti</li>
+                    <li>La contribución a los estudios de comunicación y literatura desde las epistemologías disidentes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Videos Modal -->
+        <div id="videosModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('videosModal')">&times;</span>
+                <h2>Videos de la Autora</h2>
+                <p>Entrevistas y presentaciones de Camila Sosa Villada sobre <em>Las Malas</em> y su obra:</p>
+                
+                <div class="video-links">
+                    <div class="video-item">
+                        <h3>📹 Charla TED</h3>
+                        <p>Camila Sosa Villada habla sobre su infancia y sobre cómo fue sobrevivir en el Parque</p>
+                        <a href="https://youtu.be/KQDRKphX23M?si=TMDGpuwJL57zYVtP" target="_blank" class="cta-button">Ver video</a>
+                    </div>
+
+                    <div class="video-item">
+                        <h3>📹 Entrevista en agencia EFE</h3>
+                        <p>"Es necesario refundar algunas estrategias de supervivencia"</p>
+                        <a href="https://youtu.be/kCdqDLoDmE4?si=RekwGEaFrdmko-Hh" target="_blank" class="cta-button">Ver video</a>
+                    </div>
+
+                    <div class="video-item">
+                        <h3>📹 Entrevista en "Plano corto"</h3>
+                        <p>Reflexiones sobre identidad, literatura y memoria</p>
+                        <a href="https://youtu.be/DfR3DDOZSK8?si=tVCFblEMnNg-Yh7e" target="_blank" class="cta-button">Ver video</a>
+                    </div>
+
+                    <div class="video-item">
+                        <h3>📹 Entrevista en Gelatina</h3>
+                        <p>"Escribir es íntimo, solitario y doloroso"</p>
+                        <a href="https://youtu.be/rXf2QlGfHSQ?si=S58k9EyLBErESDMI" target="_blank" class="cta-button">Ver video</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <footer>
             <p>© 2026 - Tesina de Grado | Universidad Nacional de Cuyo</p>
+            <p>Laura Zulián - Licenciatura en Comunicación Social</p>
         </footer>
     </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden"; // Previene scroll del body
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto"; // Restaura scroll del body
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.getElementsByClassName('modal');
+                for (let i = 0; i < modals.length; i++) {
+                    modals[i].style.display = "none";
+                }
+                document.body.style.overflow = "auto";
+            }
+        });
+    </script>
 </body>
 </html>
